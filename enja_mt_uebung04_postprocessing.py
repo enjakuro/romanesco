@@ -11,6 +11,8 @@ infile = open(filename, 'r', encoding='utf-8')
 with open('shakespeare_postprocessed_round2.txt', encoding='utf-8') as outfile:
 
 	for line in infile:
+		#replace <eos> with \n
+		line = re.sub(r'<eos>', r'', line)
 		#remove whitespaces
 		line = re.sub(r' ', r'', line)
 		#replace <space> delimiter with whitespace
